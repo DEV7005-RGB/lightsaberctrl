@@ -1,0 +1,218 @@
+"control" = "控制";
+"connect" = "连接";
+"info" = "信息";
+
+"smart_saber_controller" = "智能光剑控制器";
+
+"connected" = "已连接";
+"disconnected" = "未连接";
+"saber_ready" = "智能光剑已就绪";
+"please_pair_first" = "请先在连接页面配对设备";
+"please_connect_first" = "请先连接设备";
+
+"quick_actions" = "快速操作";
+"ignition" = "点火";
+"retract" = "收剑";
+"blaster" = "爆能";
+"clash" = "碰撞";
+"lockup" = "锁定";
+
+"color_selection" = "颜色选择";
+"tip_rotate_saber" = "提示: 点击颜色可立即切换预设。使用开始选色功能可以旋转光剑微调颜色";
+"start_color_selection" = "开始选色";
+"selecting_color" = "选色中...";
+"save" = "保存";
+"cancel" = "取消";
+"canceled" = "已取消";
+"color_set" = "颜色已设置";
+"color_saved" = "颜色已保存";
+"entered_color_mode" = "进入选色模式";
+
+"settings" = "参数调节";
+"volume" = "音量";
+"brightness" = "亮度";
+
+"presets" = "预设切换";
+"previous_preset" = "上一个预设";
+"next_preset" = "下一个预设";
+"current_preset" = "当前预设: %@";
+"preset_changed" = "预设已切换: %@";
+"previous" = "上一个预设: %@";
+"next" = "下一个预设: %@";
+
+"device_connection" = "设备连接";
+"start_scanning" = "开始扫描";
+"stop_scanning" = "停止扫描";
+"disconnect" = "断开连接";
+"connect_device" = "连接设备";
+"found_devices" = "发现 %d 个设备";
+"unknown_device" = "未知设备";
+"no_devices_found" = "未发现设备";
+"ensure_in_range" = "确保设备在范围内且处于配对模式";
+
+"additional_features" = "附加功能";
+"demo_mode" = "演示模式";
+"demo_mode_desc" = "无需连接设备即可体验App功能";
+
+"device_info" = "设备信息";
+"demo_mode_status" = "演示模式";
+"battery" = "电池";
+"temperature" = "温度";
+"signal" = "信号";
+"blade_status" = "光剑状态";
+"on" = "点亮";
+"off" = "关闭";
+"current_mode" = "当前模式";
+"no_data" = "暂无设备信息";
+"connect_for_data" = "请先连接设备以获取详细信息";
+"color" = "颜色";
+
+"app_info" = "应用信息";
+"version" = "版本";
+"minimum_required" = "最低支持";
+"developer" = "开发者";
+
+"online_configurator" = "ProffieOS 配置工具";
+"configurator_desc" = "高级配置 Proffieboard 光剑";
+"open_in_safari" = "在 Safari 中打开";
+"workbench_desc" = "📱 使用说明：\n\n1. 确保您的光剑使用的是 Proffieboard 主控\n2. 开机后进入蓝牙配对模式\n3. 点击下方按钮打开配置页面\n4. 在网页中点击 \"Connect\" 连接设备\n5. 即可调整预设、音效、亮度、音量等参数\n\n⚠️ 注意：此功能需要您的光剑运行 ProffieOS 固件，且支持 WebBluetooth 连接。";
+"workbench_step1" = "1. 确保光剑使用 Proffieboard";
+"workbench_step2" = "2. 开机并进入蓝牙模式";
+"workbench_step3" = "3. 点击连接按钮";
+"workbench_step4" = "4. 在网页中配置参数";
+
+"about" = "关于";
+"official_website" = "官方网站";
+"privacy_policy" = "隐私政策";
+"view_privacy_policy" = "查看我们的隐私政策";
+"help_support" = "帮助与支持";
+"get_help" = "获取帮助和支持";
+"all_rights_reserved" = "Copyright 2026 © LightsaberCtrl";
+
+"bluetooth" = "蓝牙";
+"wifi" = "WiFi";
+"ensure_wifi_connected" = "确保已连接到光剑的WiFi热点";
+
+"red" = "红色";
+"green" = "绿色";
+"blue" = "蓝色";
+"yellow" = "黄色";
+"cyan" = "青色";
+"purple" = "紫色";
+"white" = "白色";
+"orange" = "橙色";
+
+"language" = "语言";
+"language_settings" = "语言设置";
+"system_default" = "跟随系统";
+"current_language" = "当前语言";
+
+"sound_settings" = "声音设置";
+"enable_sound" = "启用声音";
+"enable_sound_desc" = "设备连接或断开时播放提示音";
+"enable_haptic" = "启用震动";
+"enable_haptic_desc" = "设备连接或断开时震动提醒";
+"connect_sound" = "连接音效";
+"disconnect_sound" = "断开音效";
+"tink" = "玻璃";
+"ascent" = "上升";
+"ringtone" = "自定义";
+"soft" = "柔和";
+"error" = "错误";
+"select_from_library" = "从iPhone选取";
+"supports_mp3_wav" = "支持 MP3、WAV、AAC";
+"select_ringtone" = "选择铃声";
+"system_ringtones" = "系统铃声";
+"done" = "完成";
+"startup_settings" = "启动画面设置";
+"select_startup_image" = "选择启动图片";
+"select_startup_media" = "选择启动媒体";
+"custom_media_selected" = "已选择自定义媒体";
+"startup_image_desc" = "设置App启动时的开机画面";
+"startup_media_desc" = "支持图片、视频、动图";
+"custom_image" = "已选择自定义图片";
+"media_aspect_mode" = "画面比例";
+"media_aspect_desc" = "填充屏幕或完整显示";
+"fill_mode" = "填充";
+"fit_mode" = "适配";
+"priority_higher" = "优先级高";
+"video_duration" = "视频时长";
+"video_duration_desc" = "设置视频播放时长";
+
+"ota_upgrade" = "固件升级";
+"current_version" = "当前版本";
+"ota_transfer_mode" = "传输模式";
+"select_firmware" = "选择固件文件";
+"firmware_selected" = "已选择固件";
+"start_upgrade" = "开始升级";
+"ota_progress" = "进度";
+"ota_idle" = "准备升级";
+"ota_preparing" = "准备中...";
+"ota_transferring" = "正在传输固件...";
+"ota_verifying" = "验证中...";
+"ota_success" = "成功";
+"ota_success_message" = "固件升级成功！";
+"ota_failed" = "升级失败";
+"device_not_connected" = "设备未连接";
+"ble_device_not_found" = "未找到蓝牙设备";
+"ota_characteristic_not_found" = "未找到OTA特征";
+
+"proffieboard_config" = "Proffieboard 配置";
+"proffieboard_config_desc" = "调整音量、亮度、预设等参数";
+"proffieboard_config_hint" = "支持通过蓝牙/Wi-Fi直接配置 Proffieboard 参数，包括预设切换、音量、亮度、碰撞灵敏度等常用设置。";
+
+"app_startup_settings" = "APP启动设置";
+"please_connect_first_for_settings" = "请先连接设备一次后才能设置";
+
+"saber_control_app" = "光剑控制应用";
+"version_formatted" = "版本 %@ (%@)";
+"contact_us" = "联系我们";
+"follow_us" = "关注我们";
+"made_with_love" = "光剑控制";
+
+"config_title" = "Proffieboard 配置";
+"connected_status" = "已连接";
+"disconnected_status" = "未连接";
+"auto_reconnect" = "自动重连";
+"preset_selection" = "预设选择";
+"current_using" = "当前使用：";
+"total_presets" = "共 %d 个预设";
+"color_settings" = "颜色设置";
+"current_color" = "当前颜色";
+"custom" = "自定义";
+"preset_colors" = "预设颜色";
+"custom_color" = "自定义颜色";
+"apply_color" = "应用颜色";
+"red_color" = "红";
+"green_color" = "绿";
+"blue_color" = "蓝";
+"volume_adjustment" = "音量调节";
+"muted" = "已静音";
+"unmuted" = "未静音";
+"brightness_adjustment" = "亮度调节";
+"proffie_os_range" = "ProffieOS 范围: 0-32767";
+"advanced_settings" = "高级设置";
+"clash_sensitivity" = "碰撞灵敏度";
+"clash_hint" = "数值越小越灵敏 (1G最灵敏, 10G最迟钝)";
+"refresh_status" = "刷新状态";
+"reboot_saber" = "重启光剑";
+"help_title" = "使用说明";
+"help_1" = "此功能通过蓝牙串口命令直接配置 Proffieboard";
+"help_2" = "音量、亮度、预设等修改会立即生效";
+"help_3" = "支持功能：预设切换、颜色设置、音量调节、亮度调节、碰撞灵敏度、静音切换";
+"help_4" = "颜色设置需要光剑先点火，然后旋转光剑选择颜色";
+"help_5" = "需要 ProffieOS 7.x 或以上版本支持";
+"help_6" = "此功能不依赖 WebBluetooth，可在 iOS 中正常使用";
+"preset_changed_to" = "已切换到预设 %d";
+"color_set_to" = "已设置颜色 #%@";
+"volume_set_to" = "音量已设置为 %d%%";
+"brightness_set_to" = "亮度已设置为 %d%%";
+"clash_set_to" = "碰撞阈值已设置为 %.1fG";
+"refreshing" = "正在刷新状态...";
+"rebooting" = "正在重启光剑...";
+
+"battery_low" = "电池电量低";
+"battery_critical" = "电池严重低电";
+"battery_voltage" = "当前电压: %.2fV";
+"please_charge" = "请尽快充电！";
+"got_it" = "知道了";

@@ -1,0 +1,214 @@
+"control" = "Control";
+"connect" = "Connection";
+"info" = "Info";
+
+"smart_saber_controller" = "Smart Saber Controller";
+
+"connected" = "Connected";
+"disconnected" = "Disconnected";
+"saber_ready" = "Smart Saber is Ready";
+"please_pair_first" = "Please pair your device first in Connection page";
+"please_connect_first" = "Please connect to device first";
+
+"quick_actions" = "Quick Actions";
+"ignition" = "Ignite";
+"retract" = "Retract";
+"blaster" = "Blaster";
+"clash" = "Clash";
+"lockup" = "Lockup";
+
+"color_selection" = "Color Selection";
+"tip_rotate_saber" = "Tip: Tap color to switch preset immediately. Use Start Color Selection to rotate saber and fine-tune colors";
+"start_color_selection" = "Start Color Selection";
+"selecting_color" = "Selecting Color...";
+"save" = "Save";
+"cancel" = "Cancel";
+"canceled" = "Canceled";
+"color_set" = "Color Set";
+"color_saved" = "Color Saved";
+"entered_color_mode" = "Entered Color Selection Mode";
+
+"settings" = "Settings";
+"volume" = "Volume";
+"brightness" = "Brightness";
+
+"presets" = "Presets";
+"previous_preset" = "Previous Preset";
+"next_preset" = "Next Preset";
+"current_preset" = "Current Preset: %@";
+"preset_changed" = "Preset Changed: %@";
+"previous" = "Previous: %@";
+"next" = "Next: %@";
+
+"device_connection" = "Device Connection";
+"start_scanning" = "Start Scan";
+"stop_scanning" = "Stop Scan";
+"disconnect" = "Disconnect";
+"connect_device" = "Connect Device";
+"found_devices" = "Found %d devices";
+"unknown_device" = "Unknown Device";
+"no_devices_found" = "No Devices Found";
+"ensure_in_range" = "Make sure device is in range and in pairing mode";
+
+"additional_features" = "Additional Features";
+"demo_mode" = "Demo Mode";
+"demo_mode_desc" = "Experience App features without connecting a device";
+
+"device_info" = "Device Info";
+"demo_mode_status" = "Demo Mode";
+"battery" = "Battery";
+"temperature" = "Temperature";
+"signal" = "Signal";
+"blade_status" = "Blade Status";
+"on" = "On";
+"off" = "Off";
+"current_mode" = "Current Mode";
+"no_data" = "No Device Info";
+"connect_for_data" = "Please connect to device to get detailed info";
+"color" = "Color";
+
+"app_info" = "App Info";
+"version" = "Version";
+"minimum_required" = "Minimum Required";
+"developer" = "Developer";
+
+"online_configurator" = "Online Configurator";
+"configurator_desc" = "Use ProffieOS Workbench to adjust parameters";
+"open_in_safari" = "Open in Safari";
+"workbench_desc" = "ProffieOS Workbench is a powerful online tool that helps you configure various Proffieboard settings including presets, volume, brightness, and more.";
+
+"about" = "About";
+"official_website" = "Official Website";
+"privacy_policy" = "Privacy Policy";
+"view_privacy_policy" = "View our privacy policy";
+"help_support" = "Help & Support";
+"get_help" = "Get help and support";
+"all_rights_reserved" = "Copyright 2026 © LightsaberCtrl";
+
+"bluetooth" = "Bluetooth";
+"wifi" = "WiFi";
+"ensure_wifi_connected" = "Make sure you are connected to the saber's WiFi hotspot";
+
+"red" = "Red";
+"green" = "Green";
+"blue" = "Blue";
+"yellow" = "Yellow";
+"cyan" = "Cyan";
+"purple" = "Purple";
+"white" = "White";
+"orange" = "Orange";
+
+"language" = "Language";
+"language_settings" = "Language Settings";
+"system_default" = "System Default";
+"current_language" = "Current Language";
+
+"sound_settings" = "Sound Settings";
+"enable_sound" = "Enable Sound";
+"enable_sound_desc" = "Play sound when device connects or disconnects";
+"enable_haptic" = "Enable Haptic";
+"enable_haptic_desc" = "Vibrate when device connects or disconnects";
+"connect_sound" = "Connect Sound";
+"disconnect_sound" = "Disconnect Sound";
+"tink" = "Glass";
+"ascent" = "Ascent";
+"ringtone" = "Custom";
+"soft" = "Soft";
+"error" = "Error";
+"select_from_library" = "Select from iPhone";
+"supports_mp3_wav" = "Supports MP3, WAV, AAC";
+"select_ringtone" = "Select Ringtone";
+"system_ringtones" = "System Ringtones";
+"done" = "Done";
+"startup_settings" = "Startup Screen";
+"select_startup_image" = "Select Startup Image";
+"select_startup_media" = "Select Startup Media";
+"custom_media_selected" = "Custom Media Selected";
+"startup_image_desc" = "Set the startup screen for App";
+"startup_media_desc" = "Supports images, videos, GIFs";
+"custom_image" = "Custom Image Selected";
+"media_aspect_mode" = "Aspect Ratio";
+"media_aspect_desc" = "Fill screen or show full content";
+"fill_mode" = "Fill";
+"fit_mode" = "Fit";
+"priority_higher" = "High Priority";
+"video_duration" = "Video Duration";
+"video_duration_desc" = "Set how long the video plays";
+
+"ota_upgrade" = "Firmware Upgrade";
+"current_version" = "Current Version";
+"ota_transfer_mode" = "Transfer Mode";
+"select_firmware" = "Select Firmware File";
+"firmware_selected" = "Firmware Selected";
+"start_upgrade" = "Start Upgrade";
+"ota_progress" = "Progress";
+"ota_idle" = "Ready to upgrade";
+"ota_preparing" = "Preparing...";
+"ota_transferring" = "Transferring firmware...";
+"ota_verifying" = "Verifying...";
+"ota_success" = "Success";
+"ota_success_message" = "Firmware upgraded successfully!";
+"ota_failed" = "Upgrade failed";
+"device_not_connected" = "Device not connected";
+"ble_device_not_found" = "BLE device not found";
+"ota_characteristic_not_found" = "OTA characteristic not found";
+
+"proffieboard_config" = "Proffieboard Config";
+"proffieboard_config_desc" = "Adjust volume, brightness, presets, and more";
+"proffieboard_config_hint" = "Directly configure Proffieboard parameters via Bluetooth/Wi-Fi, including preset switching, volume, brightness, clash sensitivity, and other common settings.";
+
+"app_startup_settings" = "App Startup Settings";
+"please_connect_first_for_settings" = "Please connect to device first to use settings";
+
+"saber_control_app" = "Saber Control App";
+"version_formatted" = "Version %@ (%@)";
+"contact_us" = "Contact Us";
+"follow_us" = "Follow Us";
+"made_with_love" = "LightsaberCtrl";
+
+"config_title" = "Proffieboard Config";
+"connected_status" = "Connected";
+"disconnected_status" = "Disconnected";
+"auto_reconnect" = "Auto Reconnect";
+"preset_selection" = "Preset Selection";
+"current_using" = "Current: ";
+"total_presets" = "%d Presets Total";
+"color_settings" = "Color Settings";
+"current_color" = "Current Color";
+"custom" = "Custom";
+"preset_colors" = "Preset Colors";
+"custom_color" = "Custom Color";
+"apply_color" = "Apply Color";
+"red_color" = "Red";
+"green_color" = "Green";
+"blue_color" = "Blue";
+"volume_adjustment" = "Volume Adjustment";
+"muted" = "Muted";
+"unmuted" = "Unmuted";
+"brightness_adjustment" = "Brightness Adjustment";
+"proffie_os_range" = "ProffieOS Range: 0-32767";
+"advanced_settings" = "Advanced Settings";
+"clash_sensitivity" = "Clash Sensitivity";
+"clash_hint" = "Lower is more sensitive (1G most, 10G least)";
+"refresh_status" = "Refresh Status";
+"reboot_saber" = "Reboot Saber";
+"help_title" = "Instructions";
+"help_1" = "This feature configures Proffieboard directly via Bluetooth serial commands";
+"help_2" = "Volume, brightness, presets changes take effect immediately";
+"help_3" = "Supported features: preset switching, color settings, volume control, brightness control, clash sensitivity, mute toggle";
+"help_4" = "Color selection requires saber to be ignited first, then rotate to choose color";
+"help_5" = "Requires ProffieOS 7.x or newer";
+"help_6" = "This feature doesn't rely on WebBluetooth and works in iOS";
+"preset_changed_to" = "Changed to preset %d";
+"color_set_to" = "Set color to #%@";
+"volume_set_to" = "Volume set to %d%%";
+"brightness_set_to" = "Brightness set to %d%%";
+"clash_set_to" = "Clash threshold set to %.1fG";
+"refreshing" = "Refreshing status...";
+"rebooting" = "Rebooting saber...";
+
+"battery_low" = "Battery Low";
+"battery_critical" = "Battery Critical";
+"battery_voltage" = "Current voltage: %.2fV";
+"please_charge" = "Please charge soon!";
+"got_it" = "Got It";
