@@ -195,14 +195,14 @@ let saberPresets: [SaberPreset] = [
     SaberPreset(name: "Sun_Skoll", color: Color(red: 255/255, green: 165/255, blue: 0/255), soundFile: "", index: 13),
     SaberPreset(name: "Huyang", color: Color(red: 255/255, green: 102/255, blue: 0/255), soundFile: "", index: 14),
     SaberPreset(name: "Loth_Hero", color: Color(red: 0/255, green: 255/255, blue: 0/255), soundFile: "", index: 15),
-    SaberPreset(name: "Shock_Baton_Proffie;common", color: Color(red: 136/255, green: 136/255, blue: 136/255), soundFile: "", index: 16),
-    SaberPreset(name: "PurgeTrooper;common", color: Color(red: 120/255, green: 0/255, blue: 255/255), soundFile: "", index: 17),
-    SaberPreset(name: "Son_Of_Corellia;common", color: Color(red: 0/255, green: 102/255, blue: 255/255), soundFile: "", index: 18),
-    SaberPreset(name: "Proto;common", color: Color(red: 0/255, green: 200/255, blue: 180/255), soundFile: "", index: 19),
-    SaberPreset(name: "Ascension;common", color: Color(red: 255/255, green: 10/255, blue: 80/255), soundFile: "", index: 20),
-    SaberPreset(name: "CyberBlade;common", color: Color(red: 0/255, green: 168/255, blue: 255/255), soundFile: "", index: 21),
-    SaberPreset(name: "Dolby;common", color: Color(red: 153/255, green: 0/255, blue: 255/255), soundFile: "", index: 22),
-    SaberPreset(name: "Rainbow;common", color: Color(red: 255/255, green: 255/255, blue: 255/255), soundFile: "", index: 23)
+    SaberPreset(name: "Shock_Baton_Proffie", color: Color(red: 136/255, green: 136/255, blue: 136/255), soundFile: "", index: 16),
+    SaberPreset(name: "PurgeTrooper", color: Color(red: 120/255, green: 0/255, blue: 255/255), soundFile: "", index: 17),
+    SaberPreset(name: "Son_Of_Corellia", color: Color(red: 0/255, green: 102/255, blue: 255/255), soundFile: "", index: 18),
+    SaberPreset(name: "Proto", color: Color(red: 0/255, green: 200/255, blue: 180/255), soundFile: "", index: 19),
+    SaberPreset(name: "Ascension", color: Color(red: 255/255, green: 10/255, blue: 80/255), soundFile: "", index: 20),
+    SaberPreset(name: "CyberBlade", color: Color(red: 0/255, green: 168/255, blue: 255/255), soundFile: "", index: 21),
+    SaberPreset(name: "Dolby", color: Color(red: 153/255, green: 0/255, blue: 255/255), soundFile: "", index: 22),
+    SaberPreset(name: "Rainbow", color: Color(red: 255/255, green: 255/255, blue: 255/255), soundFile: "", index: 23)
 ]
 
 // MARK: - 颜色选项 - 每个颜色对应一个预设索引

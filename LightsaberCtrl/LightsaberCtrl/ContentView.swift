@@ -739,7 +739,7 @@ struct ModernControlView: View {
         volume = Double(info.volume)
         brightness = Double(info.brightness)
         selectedColorHex = "#\(info.color)"
-        let newPresetIndex = max(0, min(info.currentPreset, saberPresets.count - 1))
+        let newPresetIndex = max(0, min(info.currentPreset - 1, saberPresets.count - 1))
         if currentPresetIndex != newPresetIndex {
             currentPresetIndex = newPresetIndex
         }

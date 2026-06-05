@@ -20,6 +20,8 @@ struct InfoView: View {
     @State private var selectedFirmwareURL: URL?
     @State private var otaProgress: Double = 0.0
     @State private var otaStatus: OtaManager.OtaState = .idle
+    @State private var showPrivacyPolicy = false
+    @State private var showHelpSupport = false
 
     private var systemInfo: SaberSystemInfo? {
         deviceManager.isDemoMode ? DemoModeManager.shared.systemInfo : deviceManager.systemInfo
@@ -1132,26 +1134,7 @@ struct InfoView: View {
 
             // 链接按钮
             VStack(spacing: 12) {
-                Link(destination: URL(string: "https://lightsaber.app")!) {
-                    HStack(spacing: 12) {
-                        Image(systemName: "globe")
-                            .font(.title3)
-                            .foregroundColor(.cyan)
-                        Text(Strings.officialWebsite)
-                            .font(.subheadline)
-                            .foregroundColor(.white)
-                        Spacer()
-                        Image(systemName: "arrow.up.right")
-                            .foregroundColor(.secondary)
-                    }
-                    .padding(16)
-                    .background(
-                        RoundedRectangle(cornerRadius: 12)
-                            .fill(Color.cyan.opacity(0.1))
-                    )
-                }
-
-                Link(destination: URL(string: "https://lightsaber.app/privacy")!) {
+                Button(action: { showPrivacyPolicy = true }) {
                     HStack(spacing: 12) {
                         Image(systemName: "lock.shield")
                             .font(.title3)
@@ -1170,7 +1153,7 @@ struct InfoView: View {
                     )
                 }
 
-                Link(destination: URL(string: "https://lightsaber.app/support")!) {
+                Button(action: { showHelpSupport = true }) {
                     HStack(spacing: 12) {
                         Image(systemName: "questionmark.circle")
                             .font(.title3)
@@ -1188,6 +1171,12 @@ struct InfoView: View {
                             .fill(Color.orange.opacity(0.1))
                     )
                 }
+            }
+            .sheet(isPresented: $showPrivacyPolicy) {
+                PrivacyPolicyView()
+            }
+            .sheet(isPresented: $showHelpSupport) {
+                HelpSupportView()
             }
         }
     }

@@ -94,6 +94,7 @@ struct Strings {
     static var workbenchDesc: String { localized("workbench_desc") }
     
     static var about: String { localized("about") }
+    static var back: String { localized("back") }
     static var officialWebsite: String { localized("official_website") }
     static var privacyPolicy: String { localized("privacy_policy") }
     static var viewPrivacyPolicy: String { localized("view_privacy_policy") }

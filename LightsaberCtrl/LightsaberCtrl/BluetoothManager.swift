@@ -30,7 +30,7 @@ final class BluetoothManager: NSObject, ObservableObject, SaberDeviceManager, Sa
     
     // 自动重连管理
     private var autoReconnectTimer: Timer?
-    @Published private(set) var autoReconnectEnabled = true
+    @Published private(set) var autoReconnectEnabled = false
     private let autoReconnectInterval: TimeInterval = 2.0
     private var isAutoReconnecting = false
     private var reconnectAttempts = 0  // 重连尝试次数
