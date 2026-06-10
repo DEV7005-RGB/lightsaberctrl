@@ -2,11 +2,11 @@
 "connect" = "Connection";
 "info" = "Info";
 
-"smart_saber_controller" = "Smart Saber Controller";
+"smart_blade_controller" = "Smart Blade Controller";
 
 "connected" = "Connected";
 "disconnected" = "Disconnected";
-"saber_ready" = "Smart Saber is Ready";
+"blade_ready" = "Smart Blade is Ready";
 "please_pair_first" = "Please pair your device first in Connection page";
 "please_connect_first" = "Please connect to device first";
 
@@ -84,11 +84,11 @@
 "view_privacy_policy" = "View our privacy policy";
 "help_support" = "Help & Support";
 "get_help" = "Get help and support";
-"all_rights_reserved" = "Copyright 2026 © LightsaberCtrl";
+"all_rights_reserved" = "Copyright 2026 © BladeCtrl";
 
 "bluetooth" = "Bluetooth";
 "wifi" = "WiFi";
-"ensure_wifi_connected" = "Make sure you are connected to the saber's WiFi hotspot";
+"ensure_wifi_connected" = "Make sure you are connected to the blade's WiFi hotspot";
 
 "red" = "Red";
 "green" = "Green";
@@ -161,11 +161,11 @@
 "app_startup_settings" = "App Startup Settings";
 "please_connect_first_for_settings" = "Please connect to device first to use settings";
 
-"saber_control_app" = "Saber Control App";
+"saber_control_app" = "Blade Control App";
 "version_formatted" = "Version %@ (%@)";
 "contact_us" = "Contact Us";
 "follow_us" = "Follow Us";
-"made_with_love" = "LightsaberCtrl";
+"made_with_love" = "BladeCtrl";
 
 "config_title" = "Proffieboard Config";
 "connected_status" = "Connected";

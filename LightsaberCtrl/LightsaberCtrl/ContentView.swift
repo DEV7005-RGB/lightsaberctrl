@@ -308,8 +308,8 @@ struct ModernControlView: View {
         return deviceManager.systemInfo?.colorValue ?? .red
     }
 
-    private var currentPreset: SaberPreset {
-        saberPresets[currentPresetIndex]
+    private var currentPreset: BladePreset {
+        bladePresets[currentPresetIndex]
     }
 
     var body: some View {
@@ -384,7 +384,7 @@ struct ModernControlView: View {
                 }
 
                 VStack(alignment: .leading, spacing: 6) {
-                    Text("Lightsaber Ctrl")
+                    Text("Blade Controller")
                         .font(.system(size: 32, weight: .bold, design: .rounded))
                         .foregroundStyle(
                             LinearGradient(
@@ -622,7 +622,7 @@ struct ModernControlView: View {
             }
 
             VStack(spacing: 14) {
-                Text("\(currentPresetIndex + 1) / \(saberPresets.count)")
+                Text("\(currentPresetIndex + 1) / \(bladePresets.count)")
                     .font(.system(size: 13, weight: .bold))
                     .foregroundColor(.secondary)
                     .padding(.horizontal, 14)
@@ -689,7 +689,7 @@ struct ModernControlView: View {
             columns: Array(repeating: GridItem(.flexible(), spacing: 12), count: 8),
             spacing: 12
         ) {
-            ForEach(saberPresets) { preset in
+            ForEach(bladePresets) { preset in
                 ModernPresetButton(
                     preset: preset,
                     isSelected: preset.index == currentPresetIndex,
@@ -710,7 +710,7 @@ struct ModernControlView: View {
         }
     }
 
-    private func selectPreset(_ preset: SaberPreset) {
+    private func selectPreset(_ preset: BladePreset) {
         withAnimation(.spring(response: 0.35, dampingFraction: 0.75)) {
             currentPresetIndex = preset.index
         }
@@ -720,18 +720,18 @@ struct ModernControlView: View {
 
     private func nextPreset() {
         withAnimation(.spring(response: 0.35, dampingFraction: 0.75)) {
-            currentPresetIndex = (currentPresetIndex + 1) % saberPresets.count
+            currentPresetIndex = (currentPresetIndex + 1) % bladePresets.count
         }
         deviceManager.nextPreset()
-        showSuccess(String.localizedStringWithFormat(Strings.next, saberPresets[currentPresetIndex].name))
+        showSuccess(String.localizedStringWithFormat(Strings.next, bladePresets[currentPresetIndex].name))
     }
 
     private func previousPreset() {
         withAnimation(.spring(response: 0.35, dampingFraction: 0.75)) {
-            currentPresetIndex = (currentPresetIndex - 1 + saberPresets.count) % saberPresets.count
+            currentPresetIndex = (currentPresetIndex - 1 + bladePresets.count) % bladePresets.count
         }
         deviceManager.prevPreset()
-        showSuccess(String.localizedStringWithFormat(Strings.previous, saberPresets[currentPresetIndex].name))
+        showSuccess(String.localizedStringWithFormat(Strings.previous, bladePresets[currentPresetIndex].name))
     }
 
     private func updateStateFromSystemInfo(_ info: SaberSystemInfo?) {
@@ -739,7 +739,7 @@ struct ModernControlView: View {
         volume = Double(info.volume)
         brightness = Double(info.brightness)
         selectedColorHex = "#\(info.color)"
-        let newPresetIndex = max(0, min(info.currentPreset - 1, saberPresets.count - 1))
+        let newPresetIndex = max(0, min(info.currentPreset - 1, bladePresets.count - 1))
         if currentPresetIndex != newPresetIndex {
             currentPresetIndex = newPresetIndex
         }
@@ -1191,7 +1191,7 @@ struct ModernSlider: View {
 
 // MARK: - 现代化预设按钮
 struct ModernPresetButton: View {
-    let preset: SaberPreset
+    let preset: BladePreset
     let isSelected: Bool
     let isDisabled: Bool
     let action: () -> Void

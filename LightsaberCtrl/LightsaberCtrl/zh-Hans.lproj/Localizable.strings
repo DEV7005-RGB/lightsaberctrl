@@ -2,11 +2,11 @@
 "connect" = "连接";
 "info" = "信息";
 
-"smart_saber_controller" = "智能光剑控制器";
+"smart_blade_controller" = "智能刀剑控制器";
 
 "connected" = "已连接";
 "disconnected" = "未连接";
-"saber_ready" = "智能光剑已就绪";
+"blade_ready" = "智能刀剑已就绪";
 "please_pair_first" = "请先在连接页面配对设备";
 "please_connect_first" = "请先连接设备";
 
@@ -88,11 +88,11 @@
 "view_privacy_policy" = "查看我们的隐私政策";
 "help_support" = "帮助与支持";
 "get_help" = "获取帮助和支持";
-"all_rights_reserved" = "Copyright 2026 © LightsaberCtrl";
+"all_rights_reserved" = "Copyright 2026 © BladeCtrl";
 
 "bluetooth" = "蓝牙";
 "wifi" = "WiFi";
-"ensure_wifi_connected" = "确保已连接到光剑的WiFi热点";
+"ensure_wifi_connected" = "确保已连接到刀剑的WiFi热点";
 
 "red" = "红色";
 "green" = "绿色";
@@ -165,11 +165,11 @@
 "app_startup_settings" = "APP启动设置";
 "please_connect_first_for_settings" = "请先连接设备一次后才能设置";
 
-"saber_control_app" = "光剑控制应用";
+"saber_control_app" = "刀剑控制应用";
 "version_formatted" = "版本 %@ (%@)";
 "contact_us" = "联系我们";
 "follow_us" = "关注我们";
-"made_with_love" = "光剑控制";
+"made_with_love" = "刀剑控制";
 
 "config_title" = "Proffieboard 配置";
 "connected_status" = "已连接";

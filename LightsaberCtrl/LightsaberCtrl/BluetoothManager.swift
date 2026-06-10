@@ -4,16 +4,16 @@ import Combine
 import UIKit
 
 // MARK: - 蓝牙管理器（优化版）
-final class BluetoothManager: NSObject, ObservableObject, SaberDeviceManager, SaberDeviceCommands {
+final class BluetoothManager: NSObject, ObservableObject, BladeDeviceManager, BladeDeviceCommands {
     
     // MARK: - Published属性
     @Published private(set) var isConnected = false
     @Published private(set) var isConnecting = false
     @Published private(set) var isScanning = false
     @Published private(set) var statusMessage = "未连接"
-    @Published private(set) var systemInfo: SaberSystemInfo?
+    @Published private(set) var systemInfo: BladeSystemInfo?
     @Published private(set) var bluetoothState: BluetoothState = .unknown
-    @Published private(set) var discoveredDevices: [DiscoveredSaberDevice] = []
+    @Published private(set) var discoveredDevices: [DiscoveredBladeDevice] = []
 
     // MARK: - 私有属性
     private var centralManager: CBCentralManager!
@@ -117,7 +117,7 @@ final class BluetoothManager: NSObject, ObservableObject, SaberDeviceManager, Sa
     }
 
     // MARK: - 快速连接（优化）
-    func connect(to device: DiscoveredSaberDevice) {
+    func connect(to device: DiscoveredBladeDevice) {
         guard let peripheral = device.peripheral else { return }
         guard !isConnecting && !isConnected else { return }
         
@@ -202,38 +202,38 @@ final class BluetoothManager: NSObject, ObservableObject, SaberDeviceManager, Sa
         sendCommand(command)
     }
 
-    // MARK: - SaberDeviceCommands 实现
-    func ignition() { sendCommand(SaberCommands.on + "\r\n") }
-    func retract() { sendCommand(SaberCommands.off + "\r\n") }
-    func blaster() { sendCommand(SaberCommands.blast + "\r\n") }
-    func clash() { sendCommand(SaberCommands.clash + "\r\n") }
-    func lockup() { sendCommand(SaberCommands.lockup + "\r\n") }
-    func nextPreset() { sendCommand(SaberCommands.next + "\r\n") }
-    func prevPreset() { sendCommand(SaberCommands.prev + "\r\n") }
+    // MARK: - BladeDeviceCommands 实现
+    func ignition() { sendCommand(BladeCommands.on + "\r\n") }
+    func retract() { sendCommand(BladeCommands.off + "\r\n") }
+    func blaster() { sendCommand(BladeCommands.blast + "\r\n") }
+    func clash() { sendCommand(BladeCommands.clash + "\r\n") }
+    func lockup() { sendCommand(BladeCommands.lockup + "\r\n") }
+    func nextPreset() { sendCommand(BladeCommands.next + "\r\n") }
+    func prevPreset() { sendCommand(BladeCommands.prev + "\r\n") }
 
     func setVolume(_ volume: Int) {
         let clamped = min(max(volume, 0), 100)
-        sendCommand(SaberCommands.volume(clamped) + "\r\n")
+        sendCommand(BladeCommands.volume(clamped) + "\r\n")
     }
 
     func setBrightness(_ brightness: Int) {
         let clamped = min(max(brightness, 0), 100)
-        sendCommand(SaberCommands.brightness(clamped) + "\r\n")
+        sendCommand(BladeCommands.brightness(clamped) + "\r\n")
     }
 
-    func enterColorChangeMode() { sendCommand(SaberCommands.ccmode + "\r\n") }
-    func exitColorChangeMode() { sendCommand(SaberCommands.ccexit + "\r\n") }
-    func saveColor() { sendCommand(SaberCommands.ccsave + "\r\n") }
-    func exitColorMode() { sendCommand(SaberCommands.ccexit + "\r\n") }
+    func enterColorChangeMode() { sendCommand(BladeCommands.ccmode + "\r\n") }
+    func exitColorChangeMode() { sendCommand(BladeCommands.ccexit + "\r\n") }
+    func saveColor() { sendCommand(BladeCommands.ccsave + "\r\n") }
+    func exitColorMode() { sendCommand(BladeCommands.ccexit + "\r\n") }
     
     func requestSystemInfo() {
         // 连接建立后优先获取信息
         if isConnected {
-            forceSendCommand(SaberCommands.getInfo + "\r\n")
+            forceSendCommand(BladeCommands.getInfo + "\r\n")
         }
     }
     
-    func reboot() { sendCommand(SaberCommands.reboot + "\r\n") }
+    func reboot() { sendCommand(BladeCommands.reboot + "\r\n") }
 
     func volumeUp() {
         guard let current = systemInfo?.volume else { return }
@@ -246,21 +246,21 @@ final class BluetoothManager: NSObject, ObservableObject, SaberDeviceManager, Sa
     }
 
     func selectPreset(_ index: Int) {
-        sendCommand(SaberCommands.preset(index + 1) + "\r\n")
+        sendCommand(BladeCommands.preset(index + 1) + "\r\n")
     }
 
     func setColor(_ hex: String) {
         let cleanHex = hex.replacingOccurrences(of: "#", with: "")
-        sendCommand(SaberCommands.color(cleanHex) + "\r\n")
+        sendCommand(BladeCommands.color(cleanHex) + "\r\n")
     }
     
     func switchToWiFi() { sendCommand("SWITCH_WIFI\r\n") }
     func switchToBLE() { sendCommand("SWITCH_BLE\r\n") }
     func changeWiFiPassword(_ newPassword: String) {
-        sendCommand("\(SaberCommands.wifiPassword) \(newPassword)\r\n")
+        sendCommand("\(BladeCommands.wifiPassword) \(newPassword)\r\n")
     }
     func resetWiFiPassword() {
-        sendCommand("\(SaberCommands.wifiResetPassword)\r\n")
+        sendCommand("\(BladeCommands.wifiResetPassword)\r\n")
     }
 
     // MARK: - 看门狗定时器（事件驱动模式）
@@ -306,7 +306,7 @@ final class BluetoothManager: NSObject, ObservableObject, SaberDeviceManager, Sa
             return
         }
 
-        let newInfo = SaberSystemInfo(
+        let newInfo = BladeSystemInfo(
             battery: dict["battery"] as? Float ?? dict["bat"] as? Float ?? 0,
             temperature: dict["temperature"] as? Float ?? dict["temp"] as? Float ?? 0,
             rssi: Int8(dict["rssi"] as? Int ?? -50),
@@ -348,7 +348,7 @@ final class BluetoothManager: NSObject, ObservableObject, SaberDeviceManager, Sa
     }
     
     // 检查是否需要更新UI
-    private func shouldUpdateSystemInfo(_ newInfo: SaberSystemInfo) -> Bool {
+    private func shouldUpdateSystemInfo(_ newInfo: BladeSystemInfo) -> Bool {
         guard let current = systemInfo else { return true }
         
         // 电池变化 > 0.1V
@@ -415,12 +415,12 @@ extension BluetoothManager: CBCentralManagerDelegate {
             // 更新现有设备的RSSI
             var device = discoveredDevices[index]
             let alias = loadAlias(for: deviceId ?? "")
-            device = DiscoveredSaberDevice(name: name ?? device.name, deviceId: deviceId ?? device.deviceId, alias: alias, rssi: RSSI, peripheral: peripheral)
+            device = DiscoveredBladeDevice(name: name ?? device.name, deviceId: deviceId ?? device.deviceId, alias: alias, rssi: RSSI, peripheral: peripheral)
             discoveredDevices[index] = device
 
             // 如果是光剑设备，确保排在第一位
             if let deviceName = name?.lowercased(),
-               (deviceName.contains("saber") || deviceName.contains("sabers") || deviceName.contains("lightsaber") || deviceName.contains("lightsaber")) {
+               (deviceName.contains("blade") || deviceName.contains("glow") || deviceName.contains("esp32")) {
                 let device = discoveredDevices.remove(at: index)
                 discoveredDevices.insert(device, at: 0)
             }
@@ -429,11 +429,11 @@ extension BluetoothManager: CBCentralManagerDelegate {
 
         // 添加新设备
         let alias = loadAlias(for: deviceId ?? "")
-        let device = DiscoveredSaberDevice(name: name, deviceId: deviceId, alias: alias, rssi: RSSI, peripheral: peripheral)
+        let device = DiscoveredBladeDevice(name: name, deviceId: deviceId, alias: alias, rssi: RSSI, peripheral: peripheral)
 
         // 光剑设备永远排在第一位
         if let deviceName = name?.lowercased(),
-           (deviceName.contains("saber") || deviceName.contains("sabers") || deviceName.contains("lightsaber") || deviceName.contains("lightsaber")) {
+           (deviceName.contains("blade") || deviceName.contains("glow") || deviceName.contains("esp32")) {
             discoveredDevices.insert(device, at: 0)
         } else {
             discoveredDevices.append(device)
@@ -470,7 +470,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
     func updateDeviceAlias(_ deviceId: String, alias: String?) {
         if let index = discoveredDevices.firstIndex(where: { $0.deviceId == deviceId }) {
             var device = discoveredDevices[index]
-            device = DiscoveredSaberDevice(
+            device = DiscoveredBladeDevice(
                 name: device.name,
                 deviceId: device.deviceId,
                 alias: alias,
@@ -513,7 +513,7 @@ extension BluetoothManager: CBCentralManagerDelegate {
     }
 
     // 检查设备是否是上次连接的
-    func isLastConnectedDevice(_ device: DiscoveredSaberDevice) -> Bool {
+    func isLastConnectedDevice(_ device: DiscoveredBladeDevice) -> Bool {
         guard let lastId = getLastConnectedDeviceId() else { return false }
         return device.deviceId == lastId
     }

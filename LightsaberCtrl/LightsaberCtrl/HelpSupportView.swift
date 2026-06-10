@@ -17,7 +17,7 @@ struct HelpSupportView: View {
                             VStack(alignment: .leading, spacing: 8) {
                                 Text("1. 确保光剑设备已开机并进入蓝牙模式")
                                 Text("2. 打开应用，点击底部导航栏的「连接」图标")
-                                Text("3. 在设备列表中找到您的光剑设备（名称以 lightsaber- 开头）")
+                                Text("3. 在设备列表中找到您的刀剑设备（名称以 blade- 或 glow- 开头）")
                                 Text("4. 点击设备名称进行连接")
                                 Text("5. 连接成功后，设备名称会显示为绿色")
                             }

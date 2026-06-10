@@ -2,7 +2,7 @@ import Foundation
 import Combine
 
 // MARK: - WiFi管理器（优化版）
-final class WiFiManager: ObservableObject, SaberDeviceManager, SaberDeviceCommands {
+final class WiFiManager: ObservableObject, BladeDeviceManager, BladeDeviceCommands {
 
     // MARK: - 单例
     static let shared = WiFiManager()
@@ -12,7 +12,7 @@ final class WiFiManager: ObservableObject, SaberDeviceManager, SaberDeviceComman
     @Published private(set) var isConnecting = false
     @Published private(set) var isScanning = false
     @Published private(set) var statusMessage = "未连接"
-    @Published private(set) var systemInfo: SaberSystemInfo?
+    @Published private(set) var systemInfo: BladeSystemInfo?
     @Published private(set) var availableNetworks: [WiFiNetwork] = []
 
     // MARK: - 私有属性
@@ -112,36 +112,36 @@ final class WiFiManager: ObservableObject, SaberDeviceManager, SaberDeviceComman
         }
     }
 
-    // MARK: - SaberDeviceCommands 实现
-    func ignition() { sendCommand(SaberCommands.on + "\n") }
-    func retract() { sendCommand(SaberCommands.off + "\n") }
-    func blaster() { sendCommand(SaberCommands.blast + "\n") }
-    func clash() { sendCommand(SaberCommands.clash + "\n") }
-    func lockup() { sendCommand(SaberCommands.lockup + "\n") }
-    func nextPreset() { sendCommand(SaberCommands.next + "\n") }
-    func prevPreset() { sendCommand(SaberCommands.prev + "\n") }
+    // MARK: - BladeDeviceCommands 实现
+    func ignition() { sendCommand(BladeCommands.on + "\n") }
+    func retract() { sendCommand(BladeCommands.off + "\n") }
+    func blaster() { sendCommand(BladeCommands.blast + "\n") }
+    func clash() { sendCommand(BladeCommands.clash + "\n") }
+    func lockup() { sendCommand(BladeCommands.lockup + "\n") }
+    func nextPreset() { sendCommand(BladeCommands.next + "\n") }
+    func prevPreset() { sendCommand(BladeCommands.prev + "\n") }
 
     func setVolume(_ volume: Int) {
-        sendCommand(SaberCommands.volume(volume) + "\n")
+        sendCommand(BladeCommands.volume(volume) + "\n")
     }
 
     func setBrightness(_ brightness: Int) {
-        sendCommand(SaberCommands.brightness(brightness) + "\n")
+        sendCommand(BladeCommands.brightness(brightness) + "\n")
     }
 
-    func enterColorChangeMode() { sendCommand(SaberCommands.ccmode + "\n") }
-    func exitColorChangeMode() { sendCommand(SaberCommands.ccexit + "\n") }
-    func saveColor() { sendCommand(SaberCommands.ccsave + "\n") }
-    func exitColorMode() { sendCommand(SaberCommands.ccexit + "\n") }
-    func reboot() { sendCommand(SaberCommands.reboot + "\n") }
+    func enterColorChangeMode() { sendCommand(BladeCommands.ccmode + "\n") }
+    func exitColorChangeMode() { sendCommand(BladeCommands.ccexit + "\n") }
+    func saveColor() { sendCommand(BladeCommands.ccsave + "\n") }
+    func exitColorMode() { sendCommand(BladeCommands.ccexit + "\n") }
+    func reboot() { sendCommand(BladeCommands.reboot + "\n") }
 
     func selectPreset(_ index: Int) {
-        sendCommand(SaberCommands.preset(index + 1) + "\n")
+        sendCommand(BladeCommands.preset(index + 1) + "\n")
     }
 
     func setColor(_ hex: String) {
         let cleanHex = hex.replacingOccurrences(of: "#", with: "")
-        sendCommand(SaberCommands.color(cleanHex) + "\n")
+        sendCommand(BladeCommands.color(cleanHex) + "\n")
     }
     
     func volumeUp() {
@@ -165,11 +165,11 @@ final class WiFiManager: ObservableObject, SaberDeviceManager, SaberDeviceComman
     }
 
     func changeWiFiPassword(_ newPassword: String) {
-        sendCommand("\(SaberCommands.wifiPassword) \(newPassword)\n")
+        sendCommand("\(BladeCommands.wifiPassword) \(newPassword)\n")
     }
 
     func resetWiFiPassword() {
-        sendCommand("\(SaberCommands.wifiResetPassword)\n")
+        sendCommand("\(BladeCommands.wifiResetPassword)\n")
     }
     
     func requestSystemInfo() {
@@ -240,7 +240,7 @@ final class WiFiManager: ObservableObject, SaberDeviceManager, SaberDeviceComman
                 return false
             }
 
-            let newInfo = SaberSystemInfo(
+            let newInfo = BladeSystemInfo(
                 battery: dict["battery"] as? Float ?? dict["bat"] as? Float ?? 0,
                 temperature: dict["temperature"] as? Float ?? dict["temp"] as? Float ?? 0,
                 rssi: Int8(dict["rssi"] as? Int ?? -50),
@@ -271,7 +271,7 @@ final class WiFiManager: ObservableObject, SaberDeviceManager, SaberDeviceComman
     }
     
     // 检查是否需要更新（避免不必要的UI刷新）
-    private func shouldUpdateSystemInfo(_ newInfo: SaberSystemInfo) -> Bool {
+    private func shouldUpdateSystemInfo(_ newInfo: BladeSystemInfo) -> Bool {
         guard let current = systemInfo else { return true }
         
         // 电池变化 > 0.1V

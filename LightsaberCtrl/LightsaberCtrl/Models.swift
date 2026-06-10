@@ -4,7 +4,7 @@ import CoreBluetooth
 import Combine
 
 // MARK: - 设备命令协议
-protocol SaberDeviceCommands {
+protocol BladeDeviceCommands {
     func ignition()
     func retract()
     func blaster()
@@ -31,11 +31,11 @@ protocol SaberDeviceCommands {
 }
 
 // MARK: - 连接设备管理器协议
-protocol SaberDeviceManager: ObservableObject {
+protocol BladeDeviceManager: ObservableObject {
     var isConnected: Bool { get }
     var isScanning: Bool { get }
     var statusMessage: String { get }
-    var systemInfo: SaberSystemInfo? { get }
+    var systemInfo: BladeSystemInfo? { get }
 
     func startScanning()
     func stopScanning()
@@ -44,7 +44,7 @@ protocol SaberDeviceManager: ObservableObject {
 }
 
 // MARK: - 系统信息
-struct SaberSystemInfo: Equatable {
+struct BladeSystemInfo: Equatable {
     var battery: Float
     var temperature: Float
     var rssi: Int8
@@ -62,7 +62,7 @@ struct SaberSystemInfo: Equatable {
 }
 
 // MARK: - 发现的设备
-struct DiscoveredSaberDevice: Identifiable {
+struct DiscoveredBladeDevice: Identifiable {
     let id = UUID()
     let name: String?
     let deviceId: String?
@@ -108,8 +108,8 @@ enum ConnectionMode: String, CaseIterable {
     }
 }
 
-// MARK: - 命令常量
-enum SaberCommands {
+// MARK: - 设备命令枚举
+enum BladeCommands {
     static let on = "ON"
     static let off = "OFF"
     static let blast = "BLAST"
@@ -147,8 +147,8 @@ enum UIConstants {
     static let scanTimeout: TimeInterval = 10.0
 }
 
-// MARK: - 预设颜色
-enum SaberPresetColor: String, CaseIterable {
+// MARK: - 预设颜色枚举
+enum BladePresetColor: String, CaseIterable {
     case red, green, blue, yellow, orange, purple, lightBlue, cyan, white
 
     var color: Color {
@@ -167,7 +167,7 @@ enum SaberPresetColor: String, CaseIterable {
 }
 
 // MARK: - 预设数据结构
-struct SaberPreset: Identifiable {
+struct BladePreset: Identifiable {
     let id = UUID()
     let name: String
     let color: Color
@@ -178,31 +178,31 @@ struct SaberPreset: Identifiable {
 }
 
 // MARK: - 预设配置 - 24个预设
-let saberPresets: [SaberPreset] = [
-    SaberPreset(name: "Blue", color: Color(red: 0/255, green: 0/255, blue: 255/255), soundFile: "", index: 0),
-    SaberPreset(name: "Green", color: Color(red: 0/255, green: 255/255, blue: 0/255), soundFile: "", index: 1),
-    SaberPreset(name: "Red", color: Color(red: 255/255, green: 0/255, blue: 0/255), soundFile: "", index: 2),
-    SaberPreset(name: "Yellow", color: Color(red: 255/255, green: 255/255, blue: 0/255), soundFile: "", index: 3),
-    SaberPreset(name: "Sky Blue", color: Color(red: 0/255, green: 102/255, blue: 255/255), soundFile: "", index: 4),
-    SaberPreset(name: "Purple", color: Color(red: 153/255, green: 0/255, blue: 255/255), soundFile: "", index: 5),
-    SaberPreset(name: "Cyan", color: Color(red: 0/255, green: 204/255, blue: 255/255), soundFile: "", index: 6),
-    SaberPreset(name: "Navy", color: Color(red: 30/255, green: 120/255, blue: 200/255), soundFile: "", index: 7),
-    SaberPreset(name: "Orange Red", color: Color(red: 255/255, green: 0/255, blue: 0/255), soundFile: "", index: 8),
-    SaberPreset(name: "Orange", color: Color(red: 255/255, green: 140/255, blue: 0/255), soundFile: "", index: 9),
-    SaberPreset(name: "Lime Green", color: Color(red: 0/255, green: 255/255, blue: 0/255), soundFile: "", index: 10),
-    SaberPreset(name: "Crimson", color: Color(red: 255/255, green: 0/255, blue: 0/255), soundFile: "", index: 11),
-    SaberPreset(name: "White", color: Color(red: 255/255, green: 255/255, blue: 255/255), soundFile: "", index: 12),
-    SaberPreset(name: "Gold", color: Color(red: 255/255, green: 165/255, blue: 0/255), soundFile: "", index: 13),
-    SaberPreset(name: "Fire", color: Color(red: 255/255, green: 102/255, blue: 0/255), soundFile: "", index: 14),
-    SaberPreset(name: "Forest", color: Color(red: 0/255, green: 255/255, blue: 0/255), soundFile: "", index: 15),
-    SaberPreset(name: "Silver", color: Color(red: 136/255, green: 136/255, blue: 136/255), soundFile: "", index: 16),
-    SaberPreset(name: "Electric", color: Color(red: 120/255, green: 0/255, blue: 255/255), soundFile: "", index: 17),
-    SaberPreset(name: "Ice", color: Color(red: 0/255, green: 102/255, blue: 255/255), soundFile: "", index: 18),
-    SaberPreset(name: "Teal", color: Color(red: 0/255, green: 200/255, blue: 180/255), soundFile: "", index: 19),
-    SaberPreset(name: "Pink", color: Color(red: 255/255, green: 10/255, blue: 80/255), soundFile: "", index: 20),
-    SaberPreset(name: "Neon", color: Color(red: 0/255, green: 168/255, blue: 255/255), soundFile: "", index: 21),
-    SaberPreset(name: "Violet", color: Color(red: 153/255, green: 0/255, blue: 255/255), soundFile: "", index: 22),
-    SaberPreset(name: "Rainbow", color: Color(red: 255/255, green: 255/255, blue: 255/255), soundFile: "", index: 23)
+let bladePresets: [BladePreset] = [
+    BladePreset(name: "Blue", color: Color(red: 0/255, green: 0/255, blue: 255/255), soundFile: "", index: 0),
+    BladePreset(name: "Green", color: Color(red: 0/255, green: 255/255, blue: 0/255), soundFile: "", index: 1),
+    BladePreset(name: "Red", color: Color(red: 255/255, green: 0/255, blue: 0/255), soundFile: "", index: 2),
+    BladePreset(name: "Yellow", color: Color(red: 255/255, green: 255/255, blue: 0/255), soundFile: "", index: 3),
+    BladePreset(name: "Sky Blue", color: Color(red: 0/255, green: 102/255, blue: 255/255), soundFile: "", index: 4),
+    BladePreset(name: "Purple", color: Color(red: 153/255, green: 0/255, blue: 255/255), soundFile: "", index: 5),
+    BladePreset(name: "Cyan", color: Color(red: 0/255, green: 204/255, blue: 255/255), soundFile: "", index: 6),
+    BladePreset(name: "Navy", color: Color(red: 30/255, green: 120/255, blue: 200/255), soundFile: "", index: 7),
+    BladePreset(name: "Orange Red", color: Color(red: 255/255, green: 0/255, blue: 0/255), soundFile: "", index: 8),
+    BladePreset(name: "Orange", color: Color(red: 255/255, green: 140/255, blue: 0/255), soundFile: "", index: 9),
+    BladePreset(name: "Lime Green", color: Color(red: 0/255, green: 255/255, blue: 0/255), soundFile: "", index: 10),
+    BladePreset(name: "Crimson", color: Color(red: 255/255, green: 0/255, blue: 0/255), soundFile: "", index: 11),
+    BladePreset(name: "White", color: Color(red: 255/255, green: 255/255, blue: 255/255), soundFile: "", index: 12),
+    BladePreset(name: "Gold", color: Color(red: 255/255, green: 165/255, blue: 0/255), soundFile: "", index: 13),
+    BladePreset(name: "Fire", color: Color(red: 255/255, green: 102/255, blue: 0/255), soundFile: "", index: 14),
+    BladePreset(name: "Forest", color: Color(red: 0/255, green: 255/255, blue: 0/255), soundFile: "", index: 15),
+    BladePreset(name: "Silver", color: Color(red: 136/255, green: 136/255, blue: 136/255), soundFile: "", index: 16),
+    BladePreset(name: "Electric", color: Color(red: 120/255, green: 0/255, blue: 255/255), soundFile: "", index: 17),
+    BladePreset(name: "Ice", color: Color(red: 0/255, green: 102/255, blue: 255/255), soundFile: "", index: 18),
+    BladePreset(name: "Teal", color: Color(red: 0/255, green: 200/255, blue: 180/255), soundFile: "", index: 19),
+    BladePreset(name: "Pink", color: Color(red: 255/255, green: 10/255, blue: 80/255), soundFile: "", index: 20),
+    BladePreset(name: "Neon", color: Color(red: 0/255, green: 168/255, blue: 255/255), soundFile: "", index: 21),
+    BladePreset(name: "Violet", color: Color(red: 153/255, green: 0/255, blue: 255/255), soundFile: "", index: 22),
+    BladePreset(name: "Rainbow", color: Color(red: 255/255, green: 255/255, blue: 255/255), soundFile: "", index: 23)
 ]
 
 // MARK: - 颜色选项 - 每个颜色对应一个预设索引
